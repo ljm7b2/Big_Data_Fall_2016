@@ -1,0 +1,2 @@
+INCREMENT 1
+Source folder contains all source code, there is a java program for tweet collecting, and a scala program for word count. The Documentation folder contains the screen shot of copying output into Hadoop with command line. 
