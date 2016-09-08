@@ -1,6 +1,3 @@
-/**
- * Created by ljm7b on 9/4/2016.
- */
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -22,7 +19,6 @@ public class TweetSnatcher {
 
     public static void main(String[] args) {
         ConfigurationBuilder configurationBuilder = BuildConfig();
-
         File file = new File("TwitterZikka.txt");
         if (!file.exists()) {
             try {
@@ -37,9 +33,7 @@ public class TweetSnatcher {
             e.printStackTrace();
         }
         bufferedWriter = new BufferedWriter(fileWriter);
-
         TwitterStream twitterStream = new TwitterStreamFactory(configurationBuilder.build()).getInstance();
-
         StatusListener listener = new StatusListener() {
             long count = 0;
 
@@ -62,8 +56,6 @@ public class TweetSnatcher {
                     System.out.println(count++ + "\n");
                     bufferedWriter.append(jsonTweet);
                     bufferedWriter.newLine();
-                    //bufferedWriter.newLine();
-                    //bufferedWriter.newLine();
                     if(count == 2000)
                     {
                         bufferedWriter.close();
@@ -84,7 +76,6 @@ public class TweetSnatcher {
         filterQuery.track(keywords);
         twitterStream.addListener(listener);
         twitterStream.filter(filterQuery);
-
     }
 
     public static ConfigurationBuilder BuildConfig()
