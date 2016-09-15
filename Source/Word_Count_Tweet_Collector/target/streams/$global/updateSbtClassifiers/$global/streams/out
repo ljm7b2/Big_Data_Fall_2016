@@ -1,5 +1,6 @@
 [debug] Other repositories:
 [debug] Default repositories:
+[debug] no default cache defined: set to C:\Users\ljm7b\.ivy2\cache
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: word_count_tweet_collector#word_count_tweet_collector$sbt_2.11;1.0
 [debug] 	confs: [default]
@@ -743,9 +744,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.8!test-agent.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
-[debug] :: resolution report :: resolve 679ms :: artifacts dl 44ms
+[debug] :: resolution report :: resolve 1568ms :: artifacts dl 46ms
 [debug] 	report for word_count_tweet_collector#word_count_tweet_collector$sbt_2.11;1.0 default produced in C:\Users\ljm7b\Documents\Big_Data_Fall_2016\Source\Word_Count_Tweet_Collector\target\resolution-cache\reports\word_count_tweet_collector-word_count_tweet_collector$sbt_2.11-default.xml
-[debug] 	resolve done (679ms resolve - 44ms download)
+[debug] 	resolve done (1568ms resolve - 46ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: word_count_tweet_collector#word_count_tweet_collector$sources_2.11;1.0
 [debug] 	confs: [default]
@@ -1125,6 +1126,6 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_3;0.13.8!precompiled-2_9_3.jar(src)
 [debug] 	[NOT REQUIRED] com.eed3si9n#sbt-assembly;0.13.0!sbt-assembly.jar(src)
 [debug] 	[NOT REQUIRED] org.scalactic#scalactic_2.10;2.2.1!scalactic_2.10.jar(src)
-[debug] :: resolution report :: resolve 133ms :: artifacts dl 36ms
+[debug] :: resolution report :: resolve 224ms :: artifacts dl 85ms
 [debug] 	report for word_count_tweet_collector#word_count_tweet_collector$sources_2.11;1.0 default produced in C:\Users\ljm7b\Documents\Big_Data_Fall_2016\Source\Word_Count_Tweet_Collector\target\resolution-cache\reports\word_count_tweet_collector-word_count_tweet_collector$sources_2.11-default.xml
-[debug] 	resolve done (133ms resolve - 36ms download)
+[debug] 	resolve done (224ms resolve - 85ms download)

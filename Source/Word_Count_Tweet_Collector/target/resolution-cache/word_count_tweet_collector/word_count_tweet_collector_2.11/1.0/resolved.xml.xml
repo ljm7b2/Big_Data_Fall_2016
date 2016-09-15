@@ -4,7 +4,7 @@
 		module="word_count_tweet_collector_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20160904122047"
+		publication="20160915164521"
 	>
 		<description>
 		word_count_tweet_collector
@@ -37,5 +37,9 @@
 		<dependency org="org.apache.spark" name="spark-core_2.11" rev="1.6.1" conf="provided->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-streaming_2.11" rev="1.6.1" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-mllib_2.11" rev="1.6.1" conf="compile->default(compile)"/>
+		<dependency org="edu.stanford.nlp" name="stanford-corenlp" rev="3.3.0" conf="compile->default(compile)">
+			<artifact name="stanford-corenlp" type="jar" ext="jar" conf="compile"/>
+			<artifact name="stanford-corenlp" type="jar" ext="jar" conf="*" e:classifier="models"/>
+		</dependency>
 	</dependencies>
 </ivy-module>
