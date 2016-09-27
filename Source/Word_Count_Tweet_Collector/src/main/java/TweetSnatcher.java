@@ -12,6 +12,7 @@ import twitter4j.TwitterObjectFactory;
 import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 import twitter4j.conf.ConfigurationBuilder;
+import twitter4j.User;
 
 public class TweetSnatcher {
     static BufferedWriter bufferedWriter;
@@ -19,7 +20,7 @@ public class TweetSnatcher {
 
     public static void main(String[] args) {
         ConfigurationBuilder configurationBuilder = BuildConfig();
-        File file = new File("TwitterZikka.txt");
+        File file = new File("Debate_Data_9_26_2016_Final_1_2.txt");
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -50,19 +51,23 @@ public class TweetSnatcher {
             }
 
             public void onStatus(Status status) {
-                String jsonTweet = TwitterObjectFactory.getRawJSON(status);
 
+                OutputUserData(status);
+
+                String jsonTweet = TwitterObjectFactory.getRawJSON(status);
                 try {
                     System.out.println(count++ + "\n");
                     bufferedWriter.append(jsonTweet);
                     bufferedWriter.newLine();
-                    if(count == 2000)
+                    if(count == 100000) //collect 100,000 Tweets Requirement
                     {
                         bufferedWriter.close();
                         fileWriter.close();
+
                         System.out.println("Collection of " + count + " tweets complete.");
                         System.exit(0);
                     }
+                    System.out.println(count);
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -72,10 +77,13 @@ public class TweetSnatcher {
             }
         };
         FilterQuery filterQuery = new FilterQuery();
-        String keywords[] = { "Zika", "zika", "zika virus", "Zika virus", "zika Virus", "Zika fever", "zika fever"};
+        String keywords[] = { "#Debates2016", "#debatenight", "#crookedHillary", "#Trump2016", "#Hillary2016" ,"#ImWithHer", "#NeverTrump",
+                                "Hillary", "Clinton", "Hillary Clinton", "Donald", "Trump", "Donald Trump", "Tim Kaine", "Kaine", "Mike Pence", "Pence",
+                                "#PresidentialElection2016", "#2016debate", "#presidentialdebate", "#debates"};
         filterQuery.track(keywords);
         twitterStream.addListener(listener);
         twitterStream.filter(filterQuery);
+
     }
 
     public static ConfigurationBuilder BuildConfig()
@@ -88,5 +96,19 @@ public class TweetSnatcher {
         configurationBuilder.setOAuthAccessToken("4323657393-jzFCbj6h2ljE60ZhgxR1VNGaOghe2Pfl4eowFdW");
         configurationBuilder.setOAuthAccessTokenSecret("4c384sMwiZTenqlzlRbD5knrBMglxxcDUDFd7mgHtYRr1");
         return configurationBuilder;
+    }
+
+    public static void OutputUserData(Status status)
+    {
+        //User user = status.getUser();
+        // gets Username
+        //String username = status.getUser().getScreenName();
+       // System.out.println(username);
+        //String profileLocation = user.getLocation();
+        //System.out.println("location: " + profileLocation);
+        //long tweetId = status.getId();
+        //System.out.println(tweetId);
+        //String content = status.getText();
+        //System.out.println(content +"\n");
     }
 }
