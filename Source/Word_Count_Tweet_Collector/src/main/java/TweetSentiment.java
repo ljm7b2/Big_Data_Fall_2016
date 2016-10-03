@@ -5,12 +5,18 @@ import edu.stanford.nlp.rnn.RNNCoreAnnotations;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.util.CoreMap;
+import edu.stanford.nlp.util.logging.RedwoodConfiguration;
 
 import java.util.Properties;
 
 public class TweetSentiment {
 
-    public static String TweetSentimentFinder(String line) {
+    public static int TweetSentimentFinder(String line) {
+
+        RedwoodConfiguration.empty().capture(System.err).apply();
+
+
+
 
         Properties properties = new Properties();
         properties.setProperty("annotators", "tokenize, ssplit, parse, sentiment");
@@ -29,29 +35,30 @@ public class TweetSentiment {
                 }
             }
         }
-        return line.toString() + ' ' + EnumForSentiment(mainSentiment);
+        RedwoodConfiguration.current().clear().apply();
+        return EnumForSentiment(mainSentiment);
 
     }
 
-    private static String EnumForSentiment(int sentiment) {
+    private static int EnumForSentiment(int sentiment) {
         switch (sentiment) {
             case 0:
-                return " : very negative";
+                return 0; //"very negative";
             case 1:
-                return " : negative";
+                return 1; //"negative";
             case 2:
-                return " : neutral";
+                return 2; //"neutral";
             case 3:
-                return " : positive";
+                return 3; //"positive";
             case 4:
-                return " : very positive";
+                return 4; //"very positive";
             default:
-                return " : Error";
+                return 5; //"Error";
         }
     }
 
     public static void main(String[] args) {
-        String tweetSent = TweetSentiment.TweetSentimentFinder("I hate dogs so much!!");
+        int tweetSent = TweetSentiment.TweetSentimentFinder("I hate dogs so much!!");
         System.out.println(tweetSent);
     }
 }
