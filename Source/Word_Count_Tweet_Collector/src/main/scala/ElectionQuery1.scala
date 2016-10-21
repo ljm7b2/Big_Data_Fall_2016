@@ -1,5 +1,4 @@
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.functions._
 import org.apache.log4j.{Level, Logger}
 
 object ElectionQuery1 {
@@ -14,8 +13,7 @@ object ElectionQuery1 {
     rootLogger.setLevel(Level.ERROR)
 
     //make dataframe with 200,000 tweets - 800MB
-    val dataFrame = sqlContext.read.json("COMBINED_Twitter_Debate_Data.json")
-
+    val dataFrame = sqlContext.read.json("SMALL_Debate_data.json")
     //dataFrame.printSchema()
 
     dataFrame.registerTempTable("TweetText")
@@ -54,7 +52,7 @@ object ElectionQuery1 {
     resultTrump.registerTempTable("trump")
     resultPence.registerTempTable("pence")
 
-    //query new temp tables
+    //query new temp tables to format for nice output
     val totalMentions = sqlContext
       .sql("SELECT h.ct AS Hillary, k.ct AS Kaine, t.ct AS Trump, p.ct AS Pence " +
         "FROM hillary AS h " +
@@ -62,80 +60,8 @@ object ElectionQuery1 {
         "JOIN trump AS t " +
         "JOIN pence AS p ")
 
-
-    //top tweeters for data collected
-    val uniqueUsers = sqlContext
-      .sql("SELECT user.screen_name as screenName, COUNT(user.screen_name) as total " +
-            "FROM TweetText " +
-            "GROUP BY user.screen_name " +
-            "ORDER BY COUNT(user.screen_name) DESC")
-
-    uniqueUsers.registerTempTable("topUsers")
-
-    //get AVG number of tweets per user
-    val avgTweetPerUser = sqlContext
-      .sql("SELECT AVG(total) as AverageTweetPerUser FROM topUsers")
-
-
-    // output total mentions of president and vice president
-    // totalMentions.show()
-
-    // output top tweeters
-    //uniqueUsers.show()
-
-    // output avg tweet per user
-    //avgTweetPerUser.show()
-
-
-    val resultHillaryTweets = sqlContext
-      .sql("SELECT text AS Text FROM TweetText " +
-        "WHERE UPPER(text) LIKE '%HILLARY%' " +
-        "OR UPPER(text) LIKE '%HILLARY CLINTON%' " +
-        "OR UPPER(text) LIKE '%CLINTON%' " +
-        "OR UPPER(text) LIKE '%HILLARY2016%' ")
-
-
-    val resultTrumpTweets = sqlContext
-      .sql("SELECT text AS Text FROM TweetText " +
-        "WHERE UPPER(text) LIKE '%TRUMP%' " +
-        "OR UPPER(text) LIKE '%DONALD TRUMP%' " +
-        "OR UPPER(text) LIKE '%TRUMP2016%' " +
-        "OR UPPER(text) LIKE '%DONALD%'")
-
-    val coder: (String => Int) = (arg: String) => { TweetSentiment.TweetSentimentFinder(arg)}
-
-    val sqlfunc = udf(coder)
-
-    val trumpSentiment = resultTrumpTweets.withColumn("sentiment", sqlfunc(col("Text")))
-
-    trumpSentiment.registerTempTable("trumpSentiment")
-
-    val hillarySentiment = resultHillaryTweets.withColumn("sentiment", sqlfunc(col("Text")))
-
-    hillarySentiment.registerTempTable("hillarySentiment")
-
-    val totalTrumpRows = resultTrumpTweets.select("Text").count()
-    val totalHillaryRows = resultHillaryTweets.select("Text").count()
-
-    val sentimentResultTrump = sqlContext
-      .sql("SELECT sentiment, COUNT(sentiment) AS sentIndividualTotal, " +
-           "(COUNT(sentiment) * 100.0)/(" + totalTrumpRows * 100.0 + ") AS percentage, " +
-           totalTrumpRows + " AS totalCount " +
-           "FROM trumpSentiment " +
-           "GROUP BY sentiment " )
-
-    sentimentResultTrump.show()
-
-    val sentimentResultHillary = sqlContext
-      .sql("SELECT sentiment, COUNT(sentiment) AS sentIndividualTotal, " +
-        "(COUNT(sentiment) * 100.0)/(" + totalHillaryRows * 100.0 + ") AS percentage, " +
-        totalHillaryRows + " AS totalCount " +
-        "FROM hillarySentiment " +
-        "GROUP BY sentiment " )
-
-    sentimentResultHillary.show()
-
-
+    // output total mentions of presidents versus their vice president
+    totalMentions.show()
   }
 }
 
