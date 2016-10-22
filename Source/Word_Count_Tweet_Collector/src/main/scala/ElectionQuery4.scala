@@ -16,12 +16,18 @@ object ElectionQuery4 {
     rootLogger.setLevel(Level.ERROR)
 
 
-    val distFile = context.textFile("All_User_Names_Twitter.txt")
+    val tweetTextFile = context.textFile("Combined_Tweet_Text.txt")
+    val popularHashTags = context.textFile("HashTagTopics.txt")
 
-    val k = distFile.map(MyFunctions.func1)
+
+    //val k = tweetTextFile.map(MyFunctions.func1)
+
+    val lineWithTrump = tweetTextFile.filter(line => line.contains("trump"))
+    println(lineWithTrump.count())
 
 
-    println(k.first())
+
+    //println(k.first())
   }
   object MyFunctions {
     def func1(s: String): String = { s + " " + snl.GetUserLocation(s) }

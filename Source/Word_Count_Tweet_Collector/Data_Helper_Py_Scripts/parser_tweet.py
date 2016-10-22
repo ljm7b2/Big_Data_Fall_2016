@@ -4,21 +4,21 @@ import re
 # build array of JSON objects containing tweet
 tweets = []
 count = 0
-for line in open('Debate_Data_9_26_2016_Final_1_2.txt', 'r', encoding="utf-8"):
+for line in open('Debate_Data_9_26_2016_Final_1.json', 'r', encoding="utf-8"):
     if line.strip() != '' and line.strip() != '\n':        
         tweets.append(json.loads(line))
         count += 1
 print("Tweets processed: ", count)
 print("Writing data to file...")
 # create output file of text from tweets
-outFile = open("CLEAN_Debate_Data_9_26_2016_Final_1_2.txt", "w")
+outFile = open("CLEAN_TEXT_ONLY_1.txt", "w", encoding="utf-8")
 
 outCount = 0
 percent_done = 0
 
 for twt in tweets:
     str_twt = twt["text"].replace('\n', ' ')
-    str_twt = re.sub("[^a-zA-Z]+", " ", str_twt)
+    # str_twt = re.sub("[^a-zA-Z]+", " ", str_twt)
     str_twt = str_twt.lower()
 
     outCount += 1
@@ -32,4 +32,5 @@ for twt in tweets:
 
     print(str_twt, file=outFile)
 
+print("total output", outCount)
 outFile.close()   
