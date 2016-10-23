@@ -4,7 +4,7 @@
 		module="word_count_tweet_collector$sbt_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20160915164541"
+		publication="20161023180448"
 	/>
 	<configurations>
 		<conf name="default" visibility="public"/>

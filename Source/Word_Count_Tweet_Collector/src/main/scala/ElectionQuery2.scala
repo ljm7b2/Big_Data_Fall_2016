@@ -12,7 +12,7 @@ object ElectionQuery2 {
     rootLogger.setLevel(Level.ERROR)
 
     //make dataframe with 200,000 tweets - 800MB
-    val dataFrame = sqlContext.read.json("SMALL_Debate_data.json")
+    val dataFrame = sqlContext.read.json("COMBINED_Twitter_Debate_Data.json")
     //dataFrame.printSchema()
 
     dataFrame.registerTempTable("TweetText")
@@ -32,9 +32,11 @@ object ElectionQuery2 {
 
     // output top tweeters
     uniqueUsers.show()
+    uniqueUsers.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("Q2_Unique_Users.csv")
 
     // output avg tweet per user
     avgTweetPerUser.show()
+    avgTweetPerUser.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("Q2_AVG_Twt_Per_User.csv")
 
   }
 }

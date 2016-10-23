@@ -30,7 +30,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-streaming" % "1.6.1",
   "org.apache.spark" %% "spark-mllib" % "1.6.1",
   "edu.stanford.nlp" % "stanford-corenlp" % "3.3.0",
-  "edu.stanford.nlp" % "stanford-corenlp" % "3.3.0" classifier "models"
+  "edu.stanford.nlp" % "stanford-corenlp" % "3.3.0" classifier "models",
+  "com.databricks" % "spark-csv_2.11" % "1.5.0"
 )
 
 

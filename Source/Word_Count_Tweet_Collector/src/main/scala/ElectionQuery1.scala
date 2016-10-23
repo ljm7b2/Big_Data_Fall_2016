@@ -13,7 +13,7 @@ object ElectionQuery1 {
     rootLogger.setLevel(Level.ERROR)
 
     //make dataframe with 200,000 tweets - 800MB
-    val dataFrame = sqlContext.read.json("SMALL_Debate_data.json")
+    val dataFrame = sqlContext.read.json("COMBINED_Twitter_Debate_Data.json")
     //dataFrame.printSchema()
 
     dataFrame.registerTempTable("TweetText")
@@ -62,6 +62,7 @@ object ElectionQuery1 {
 
     // output total mentions of presidents versus their vice president
     totalMentions.show()
+    totalMentions.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("Q1_Total_Mentions.csv")
   }
 }
 

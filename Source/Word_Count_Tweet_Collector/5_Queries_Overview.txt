@@ -1,0 +1,9 @@
+1) Compare the number of tweets for each candidate including the vice-president.
+
+2) Get the top Tweeters from the data collected. Who Tweeted the most during the debate.
+
+3) Were the tweets positive or negative? Run sentiment analysis on the Tweets for each candidate.
+
+4) What were the peak times people were tweeting about the debate? Word count.
+
+5) Were any trending HashTags used and what were they? 

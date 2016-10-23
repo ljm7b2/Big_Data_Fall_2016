@@ -4,8 +4,6 @@ import org.apache.log4j.{Level, Logger}
 
 object ElectionQuery4 {
 
-  val snl = new ScreenNameLocationSnatcher();
-
   def main(args: Array[String]) {
     System.setProperty("hadoop.home.dir", "C:\\Users\\ljm7b\\Documents\\Hadoop");
     val sparkConf = new SparkConf().setAppName("ElectionQuery4").setMaster("local[*]")
@@ -15,21 +13,33 @@ object ElectionQuery4 {
     val rootLogger = Logger.getRootLogger()
     rootLogger.setLevel(Level.ERROR)
 
+    // create RDD from hashtags collected from debate tweets
+    val tweetTextFile = context.textFile("CLEAN_HASHTAGS_ONLY.txt")
+      //do word count on top hash tags
+      .map(word => (word, 1))
+      .reduceByKey(_ + _)
+      //sort the tuples in descending by the value
+      .map( item => item.swap)
+      .sortByKey(false, 1)
+      .map(item => item.swap)
 
-    val tweetTextFile = context.textFile("Combined_Tweet_Text.txt")
-    val popularHashTags = context.textFile("HashTagTopics.txt")
+
+    //load popular hashtags given by professor into RDD, do a basic map to create RDD pair
+    val popularHashTags = context.textFile("HashTagTopics.txt").map(word => (word, 0))
+
+    //Perform JOIN on the two RDDs
+    val popularDebateHashTags = tweetTextFile
+      .join(popularHashTags)
+      //re-map to get rid of ther original value for popularHashTags tuple and keep original word count tuple value
+      //for example this would change (#hash, (352, 0))  into -> (#hash, 352)
+      .map(item => (item._1, item._2._1))
+      //Sort by descending value
+      .map(item => item.swap)
+      .sortByKey(false, 1)
+      .map(item => item.swap)
 
 
-    //val k = tweetTextFile.map(MyFunctions.func1)
-
-    val lineWithTrump = tweetTextFile.filter(line => line.contains("trump"))
-    println(lineWithTrump.count())
-
-
-
-    //println(k.first())
-  }
-  object MyFunctions {
-    def func1(s: String): String = { s + " " + snl.GetUserLocation(s) }
+    println(popularDebateHashTags.first())
+    popularDebateHashTags.saveAsTextFile("Q4 _popular_debate_hashtags_output");
   }
 }

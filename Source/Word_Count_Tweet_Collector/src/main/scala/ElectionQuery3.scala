@@ -14,7 +14,7 @@ object ElectionQuery3 {
     rootLogger.setLevel(Level.ERROR)
 
     //make dataframe with 200,000 tweets - 800MB
-    val dataFrame = sqlContext.read.json("SMALL_Debate_data.json")
+    val dataFrame = sqlContext.read.json("COMBINED_Twitter_Debate_Data.json")
     //dataFrame.printSchema()
 
     dataFrame.registerTempTable("TweetText")
@@ -59,6 +59,9 @@ object ElectionQuery3 {
 
     sentimentResultTrump.show()
 
+    sentimentResultTrump.repartition(1).write.format("com.databricks.spark.csv").option("header","true").save("Q3_Sentiment_Trump.csv")
+
+
     val sentimentResultHillary = sqlContext
       .sql("SELECT sentiment, COUNT(sentiment) AS sentIndividualTotal, " +
         "(COUNT(sentiment) * 100.0)/(" + totalHillaryRows * 100.0 + ") AS percentage, " +
@@ -67,6 +70,8 @@ object ElectionQuery3 {
         "GROUP BY sentiment " )
 
     sentimentResultHillary.show()
+
+    sentimentResultHillary.repartition(1).write.format("com.databricks.spark.csv").option("header","true").save("Q3_Sentiment_Hillary.csv")
   }
 }
 

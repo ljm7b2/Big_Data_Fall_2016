@@ -7,8 +7,52 @@
 		revision="1.0"
 		conf="compile-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20160915164544"/>
+		date="20161023180510"/>
 	<dependencies>
+		<module organisation="com.databricks" name="spark-csv_2.11">
+			<revision name="1.5.0" status="release" pubdate="20160905155838" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/databricks/spark-csv" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="150">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="4102" time="0" location="C:\Users\ljm7b\.ivy2\cache\com.databricks\spark-csv_2.11\ivy-1.5.0.xml" searched="false" origin-is-local="false" origin-location="https://jcenter.bintray.com/com/databricks/spark-csv_2.11/1.5.0/spark-csv_2.11-1.5.0.pom"/>
+				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="1.5.0" rev-constraint-default="1.5.0" rev-constraint-dynamic="1.5.0" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="spark-csv_2.11" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="22735" time="0" location="C:\Users\ljm7b\.ivy2\cache\com.databricks\spark-csv_2.11\srcs\spark-csv_2.11-1.5.0-sources.jar">
+						<origin-location is-local="false" location="https://jcenter.bintray.com/com/databricks/spark-csv_2.11/1.5.0/spark-csv_2.11-1.5.0-sources.jar"/>
+					</artifact>
+					<artifact name="spark-csv_2.11" type="jar" ext="jar" status="no" details="" size="167269" time="0" location="C:\Users\ljm7b\.ivy2\cache\com.databricks\spark-csv_2.11\jars\spark-csv_2.11-1.5.0.jar">
+						<origin-location is-local="false" location="https://jcenter.bintray.com/com/databricks/spark-csv_2.11/1.5.0/spark-csv_2.11-1.5.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.univocity" name="univocity-parsers">
+			<revision name="1.5.1" status="release" pubdate="20150408175600" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/uniVocity/univocity-parsers" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="152">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3624" time="0" location="C:\Users\ljm7b\.ivy2\cache\com.univocity\univocity-parsers\ivy-1.5.1.xml" searched="false" origin-is-local="false" origin-location="https://jcenter.bintray.com/com/univocity/univocity-parsers/1.5.1/univocity-parsers-1.5.1.pom"/>
+				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="1.5.1" rev-constraint-default="1.5.1" rev-constraint-dynamic="1.5.1" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="univocity-parsers" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="171854" time="0" location="C:\Users\ljm7b\.ivy2\cache\com.univocity\univocity-parsers\srcs\univocity-parsers-1.5.1-sources.jar">
+						<origin-location is-local="false" location="https://jcenter.bintray.com/com/univocity/univocity-parsers/1.5.1/univocity-parsers-1.5.1-sources.jar"/>
+					</artifact>
+					<artifact name="univocity-parsers" type="jar" ext="jar" status="no" details="" size="148962" time="0" location="C:\Users\ljm7b\.ivy2\cache\com.univocity\univocity-parsers\jars\univocity-parsers-1.5.1.jar">
+						<origin-location is-local="false" location="https://jcenter.bintray.com/com/univocity/univocity-parsers/1.5.1/univocity-parsers-1.5.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-csv">
+			<revision name="1.1" status="release" pubdate="20141116144800" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-csv/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="151">
+				<metadata-artifact status="no" details="" size="10846" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.commons\commons-csv\ivy-1.1.xml" searched="false" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/commons/commons-csv/1.1/commons-csv-1.1.pom"/>
+				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="commons-csv" type="jar" ext="jar" status="no" details="" size="36888" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.commons\commons-csv\jars\commons-csv-1.1.jar">
+						<origin-location is-local="false" location="https://jcenter.bintray.com/org/apache/commons/commons-csv/1.1/commons-csv-1.1.jar"/>
+					</artifact>
+					<artifact name="commons-csv" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="38045" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.commons\commons-csv\srcs\commons-csv-1.1-sources.jar">
+						<origin-location is-local="false" location="https://jcenter.bintray.com/org/apache/commons/commons-csv/1.1/commons-csv-1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="edu.stanford.nlp" name="stanford-corenlp">
 			<revision name="3.3.0" status="release" pubdate="20131115183400" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://nlp.stanford.edu/software/corenlp.shtml" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="143">
 				<license name="GNU General Public License Version 2" url="http://www.gnu.org/licenses/gpl-2.0.txt"/>
@@ -572,7 +616,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-mapreduce-client-jobclient">
 			<revision name="2.2.0" status="release" pubdate="20131007013723" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="51">
-				<metadata-artifact status="successful" details="" size="5474" time="281" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-jobclient\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-jobclient\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.2.0/hadoop-mapreduce-client-jobclient-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="5474" time="212" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-jobclient\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-jobclient\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.2.0/hadoop-mapreduce-client-jobclient-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-mapreduce-client-jobclient" type="jar" ext="jar" status="no" details="" size="35216" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-jobclient\jars\hadoop-mapreduce-client-jobclient-2.2.0.jar">
@@ -618,7 +662,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-mapreduce-client-app">
 			<revision name="2.2.0" status="release" pubdate="20131007013711" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="32">
-				<metadata-artifact status="successful" details="" size="4335" time="254" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-app\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-app\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-app/2.2.0/hadoop-mapreduce-client-app-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="4335" time="428" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-app\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-app\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-app/2.2.0/hadoop-mapreduce-client-app-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-mapreduce-client-app" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="278865" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-app\srcs\hadoop-mapreduce-client-app-2.2.0-sources.jar">
@@ -632,7 +676,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-mapreduce-client-shuffle">
 			<revision name="2.2.0" status="release" pubdate="20131007013703" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="50">
-				<metadata-artifact status="successful" details="" size="1675" time="250" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-shuffle\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-shuffle\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-shuffle/2.2.0/hadoop-mapreduce-client-shuffle-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="1675" time="140" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-shuffle\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-shuffle\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-shuffle/2.2.0/hadoop-mapreduce-client-shuffle-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-mapreduce-client-shuffle" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="10605" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-shuffle\srcs\hadoop-mapreduce-client-shuffle-2.2.0-sources.jar">
@@ -646,7 +690,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-yarn-server-nodemanager">
 			<revision name="2.2.0" status="release" pubdate="20131007013538" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="112">
-				<metadata-artifact status="successful" details="" size="7324" time="240" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-nodemanager\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-nodemanager\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-server-nodemanager/2.2.0/hadoop-yarn-server-nodemanager-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="7324" time="383" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-nodemanager\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-nodemanager\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-server-nodemanager/2.2.0/hadoop-yarn-server-nodemanager-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-yarn-server-nodemanager" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="262442" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-nodemanager\srcs\hadoop-yarn-server-nodemanager-2.2.0-sources.jar">
@@ -660,7 +704,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-mapreduce-client-common">
 			<revision name="2.2.0" status="release" pubdate="20131007013659" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="33">
-				<metadata-artifact status="successful" details="" size="3273" time="212" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-common\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-common\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-common/2.2.0/hadoop-mapreduce-client-common-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="3273" time="542" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-common\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-common\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-common/2.2.0/hadoop-mapreduce-client-common-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-mapreduce-client-common" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="244749" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-common\srcs\hadoop-mapreduce-client-common-2.2.0-sources.jar">
@@ -674,7 +718,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-yarn-server-common">
 			<revision name="2.2.0" status="release" pubdate="20131007013526" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="49">
-				<metadata-artifact status="successful" details="" size="3534" time="211" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-common\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-common\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-server-common/2.2.0/hadoop-yarn-server-common-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="3534" time="371" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-common\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-common\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-server-common/2.2.0/hadoop-yarn-server-common-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-yarn-server-common" type="jar" ext="jar" status="no" details="" size="175554" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-server-common\jars\hadoop-yarn-server-common-2.2.0.jar">
@@ -688,7 +732,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-mapreduce-client-core">
 			<revision name="2.2.0" status="release" pubdate="20131007013626" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="48">
-				<metadata-artifact status="successful" details="" size="3085" time="253" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-core\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-core\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-core/2.2.0/hadoop-mapreduce-client-core-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="3085" time="372" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-core\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-core\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-mapreduce-client-core/2.2.0/hadoop-mapreduce-client-core-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-mapreduce-client-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1008328" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-mapreduce-client-core\srcs\hadoop-mapreduce-client-core-2.2.0-sources.jar">
@@ -702,7 +746,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-yarn-client">
 			<revision name="2.2.0" status="release" pubdate="20131007013604" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="47">
-				<metadata-artifact status="successful" details="" size="1961" time="202" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-client\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-client\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-client/2.2.0/hadoop-yarn-client-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="1961" time="359" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-client\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-client\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-client/2.2.0/hadoop-yarn-client-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-yarn-client" type="jar" ext="jar" status="no" details="" size="94728" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-client\jars\hadoop-yarn-client-2.2.0.jar">
@@ -716,7 +760,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-yarn-common">
 			<revision name="2.2.0" status="release" pubdate="20131007013515" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="34">
-				<metadata-artifact status="successful" details="" size="5032" time="211" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-common\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-common\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-common/2.2.0/hadoop-yarn-common-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="5032" time="133" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-common\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-common\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-common/2.2.0/hadoop-yarn-common-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-yarn-common" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="634761" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-common\srcs\hadoop-yarn-common-2.2.0-sources.jar">
@@ -730,7 +774,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-yarn-api">
 			<revision name="2.2.0" status="release" pubdate="20131007013452" resolver="jcenter" artresolver="jcenter" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="35">
-				<metadata-artifact status="successful" details="" size="2956" time="227" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-api\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-api\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-api/2.2.0/hadoop-yarn-api-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="2956" time="155" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-api\ivy-2.2.0.xml" searched="true" original-local-location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-api\ivy-2.2.0.xml.original" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/apache/hadoop/hadoop-yarn-api/2.2.0/hadoop-yarn-api-2.2.0.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="hadoop-yarn-api" type="jar" ext="jar" status="no" details="" size="1158936" time="0" location="C:\Users\ljm7b\.ivy2\cache\org.apache.hadoop\hadoop-yarn-api\jars\hadoop-yarn-api-2.2.0.jar">
@@ -957,7 +1001,7 @@
 			</revision>
 		</module>
 		<module organisation="javax.activation" name="activation">
-			<revision name="1.1" status="release" pubdate="20080831064538" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://java.sun.com/products/javabeans/jaf/index.jsp" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="150">
+			<revision name="1.1" status="release" pubdate="20080831064538" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://java.sun.com/products/javabeans/jaf/index.jsp" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="153">
 				<license name="Common Development and Distribution License (CDDL) v1.0" url="https://glassfish.dev.java.net/public/CDDLv1.0.html"/>
 				<metadata-artifact status="no" details="" size="2747" time="0" location="C:\Users\ljm7b\.ivy2\cache\javax.activation\activation\ivy-1.1.xml" searched="false" origin-is-local="false" origin-location="https://jcenter.bintray.com/javax/activation/activation/1.1/activation-1.1.pom"/>
 				<caller organisation="word_count_tweet_collector" name="word_count_tweet_collector$sources_2.11" conf="compile-internal, compile, provided, optional" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.0"/>
