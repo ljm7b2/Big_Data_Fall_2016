@@ -58,7 +58,7 @@ public class TweetSentiment {
     }
 
     public static void main(String[] args) {
-        int tweetSent = TweetSentiment.TweetSentimentFinder("I hate dogs so much!!");
+        int tweetSent = TweetSentiment.TweetSentimentFinder("I love dogs so much!!");
         System.out.println(tweetSent);
     }
 }
