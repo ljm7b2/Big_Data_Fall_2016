@@ -12,7 +12,7 @@ object ElectionQuery4 {
 
     val rootLogger = Logger.getRootLogger()
     rootLogger.setLevel(Level.ERROR)
-
+    val t1 = System.nanoTime
     // create RDD from hashtags collected from debate tweets
     val tweetTextFile = context.textFile("CLEAN_HASHTAGS_ONLY.txt")
       //do word count on top hash tags
@@ -38,8 +38,9 @@ object ElectionQuery4 {
       .sortByKey(false, 1)
       .map(item => item.swap)
 
-
     println(popularDebateHashTags.first())
     popularDebateHashTags.saveAsTextFile("Q4 _popular_debate_hashtags_output");
+    val duration = (System.nanoTime - t1) / 1e9d
+    println("Time Duration: " + duration)
   }
 }

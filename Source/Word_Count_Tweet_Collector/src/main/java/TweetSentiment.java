@@ -12,12 +12,7 @@ import java.util.Properties;
 public class TweetSentiment {
 
     public static int TweetSentimentFinder(String line) {
-
         RedwoodConfiguration.empty().capture(System.err).apply();
-
-
-
-
         Properties properties = new Properties();
         properties.setProperty("annotators", "tokenize, ssplit, parse, sentiment");
         StanfordCoreNLP pipeline = new StanfordCoreNLP(properties);

@@ -11,7 +11,7 @@ object ElectionQuery1 {
 
     val rootLogger = Logger.getRootLogger()
     rootLogger.setLevel(Level.ERROR)
-
+    val t1 = System.nanoTime
     //make dataframe with 200,000 tweets - 800MB
     val dataFrame = sqlContext.read.json("COMBINED_Twitter_Debate_Data.json")
     //dataFrame.printSchema()
@@ -63,6 +63,8 @@ object ElectionQuery1 {
     // output total mentions of presidents versus their vice president
     totalMentions.show()
     totalMentions.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("Q1_Total_Mentions.csv")
+    val duration = (System.nanoTime - t1) / 1e9d
+    println("Time Duration: " + duration)
   }
 }
 

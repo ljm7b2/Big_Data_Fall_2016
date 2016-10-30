@@ -10,7 +10,7 @@ object ElectionQuery2 {
 
     val rootLogger = Logger.getRootLogger()
     rootLogger.setLevel(Level.ERROR)
-
+    val t1 = System.nanoTime
     //make dataframe with 200,000 tweets - 800MB
     val dataFrame = sqlContext.read.json("COMBINED_Twitter_Debate_Data.json")
     //dataFrame.printSchema()
@@ -32,12 +32,13 @@ object ElectionQuery2 {
 
     // output top tweeters
     uniqueUsers.show()
-    uniqueUsers.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("Q2_Unique_Users.csv")
+    //uniqueUsers.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("Q2_Unique_Users.csv")
 
     // output avg tweet per user
     avgTweetPerUser.show()
-    avgTweetPerUser.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("Q2_AVG_Twt_Per_User.csv")
-
+    //avgTweetPerUser.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("Q2_AVG_Twt_Per_User.csv")
+    val duration = (System.nanoTime - t1) / 1e9d
+    println("Time Duration: " + duration)
   }
 }
 

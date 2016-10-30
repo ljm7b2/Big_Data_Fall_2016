@@ -10,7 +10,7 @@ object ElectionQuery5 {
 
     val rootLogger = Logger.getRootLogger()
     rootLogger.setLevel(Level.ERROR)
-
+    val t1 = System.nanoTime
     //Create RDD of timestamps from when each tweet occurred
     val timeStamps = context.textFile("CLEAN_CREATED_AT_ONLY_1.txt")
 
@@ -23,5 +23,8 @@ object ElectionQuery5 {
     //reduce to one partition so  output file is easy to parse
     // NOTE: if this directory currently exists in output, the program will fail, it cannot overwrite a directory
     timeCounts.coalesce(1).saveAsTextFile("Q5_Largest_Density_of_Tweets_TimeStamp")
+    println(timeCounts.first())
+    val duration = (System.nanoTime - t1) / 1e9d
+    println("Time Duration: " + duration)
   }
 }
