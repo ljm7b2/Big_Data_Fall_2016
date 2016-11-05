@@ -26,6 +26,12 @@ object ElectionQuery2 {
 
     uniqueUsers.registerTempTable("topUsers")
 
+    val groupedUsers = sqlContext
+      .sql("SELECT total as total1, COUNT(total) FROM topUsers GROUP BY total ORDER BY total DESC")
+
+    groupedUsers.show()
+    groupedUsers.repartition(1).write.format("com.databricks.spark.csv").option("header", "true").save("Q2_Grouped_Users.csv")
+
     //get AVG number of tweets per user
     val avgTweetPerUser = sqlContext
       .sql("SELECT AVG(total) as AverageTweetPerUser FROM topUsers")

@@ -1,0 +1,21 @@
+<ion-view title="Geographic Disease Mapping" id="page1" class="bar-positive">
+    <ion-content padding="true" class="has-header">
+        <form id="home-form1" class="list ">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="make a query related to the geography of diseases IE: 'What states have a high rate of Zikka?'">
+            </label>
+        </form>
+        <button class="button button-large button-positive">
+          Search
+        </button>
+        <div id="floating-panel">
+          <button ng-click="toggleHeatmap()">Toggle Heatmap</button>
+          <button ng-click="changeGradient()">Change gradient</button>
+          <button ng-clickk="changeRadius()">Change radius</button>
+          <button ng-click="changeOpacity()">Change opacity</button>
+        </div>
+        <div id="map"></div>
+        <div id="chart_div"></div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Team4_Servlet_BigData">
+        <property name="context-root" value="Team4_Servlet_BigData"/>
+        <property name="java-output-path" value="/Team4_Servlet_BigData/build/classes"/>
+    </wb-module>
+</project-modules>

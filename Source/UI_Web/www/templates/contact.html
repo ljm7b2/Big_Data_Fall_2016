@@ -1,0 +1,77 @@
+<ion-view title="Question and Answer Health Ontology" id="page3" class=" ">
+    <ion-content padding="true" class="has-header">
+        
+
+        <div class="list">
+            <label class="item ">
+                <div class="input-label">
+                    <h1><b>Query Builder</b></h1>
+                </div>
+            </label>
+        </div>
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    <h2>Option #1</h2>
+                </div>
+                <select ng-model="select1" ng-change="getSelect1(select1)">
+                    <option>Which</option>
+                    <option selected>What</option>
+                </select>
+            </label>
+        </div>
+        
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    <h2>Option #2</h2>
+                </div>
+                <select ng-model="select2" ng-change="getSelect2(select2)">
+                    <option>body parts are affected by</option>
+                    <option selected>are the symptoms of</option>
+                    <option>is the cause of</option>
+                    <option>are the types of</option>
+                </select>
+            </label>
+        </div>
+        
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    <h2>Option #3</h2>
+                </div>
+                <select ng-model="select3" ng-change="getSelect3(select3)">
+                    <option>Cancer</option>
+                    <option>ViralInfection</option>
+                    <option>PhysicalDeformation</option>
+                    <option selected>LungCancer</option>
+                    <option>SkinCancer</option>
+                    <option>BrainCancer</option>
+                    <option>Chickenpox</option>
+                    <option>Influenza</option>
+                    <option>Mumps</option>
+                    <option>CerebralPalsy</option>
+                    <option>Poliomyelitis</option>
+                    <option>SpinaBifida</option>
+                </select>
+            </label>        
+        </div>
+        
+        <h4><b>Question: </b>{{queryText1}}</h4>
+        <h4><b>SPARQL Query: </b>{{sparqlQuery}}</h4>
+        
+        <button class="button button-full button-positive" ng-click="buildQuery()">
+          Execute Query
+        </button>
+        
+        <h2>Answer:</h2>
+        <ion-list>
+            <div ng-repeat="item in answers" divider-collection-repeat>
+                <ion-item>
+                    <h3><b>{{item.answer}}</b></h3>
+                </ion-item>
+            </div>
+        </ion-list>
+    
+    </ion-content>
+</ion-view>
