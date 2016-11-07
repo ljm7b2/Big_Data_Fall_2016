@@ -33,17 +33,17 @@
         <h1 class="title">Query 1</h1>
         <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
     </ion-header-bar>
-    
-        <canvas 
-            id="bar" 
-            class="chart chart-bar"
-            chart-data="data1" 
-            chart-labels="labels1" 
-            style="padding-top:150px;padding-right:10px;padding-left:10px;" 
-            chart-series="series1">
-        </canvas>
-    
-        <h3>Out of all the tweets collected, which candidate is being discussed the most?</h3>
+            <canvas 
+                id="base"
+                class="chart-base"
+                chart-data="data1" 
+                chart-type="type1"
+                chart-labels="labels1"  
+                chart-series="series1"
+                chart-options="options1"
+                chart-dataset-override="datasetOverride1" 
+                style="padding-top:75px;padding-right:10px;padding-left:10px;">
+            </canvas>
   </div>
 </script>
 
@@ -66,8 +66,6 @@
             chart-click="onClick2"
             style="padding-top:150px;padding-right:10px;padding-left:10px;">
         </canvas> 
-    
-        <h3> Are many people tweeting a lot about the debate, or are just a few people dominating the discussion with lots of tweets?</h3>
   </div>
 </script>
 
@@ -85,10 +83,10 @@
                 chart-data="data3" 
                 chart-options="options3" 
                 chart-labels="labels3"
+                chart-series="series3"
+                chart-dataset-override="datasetOverride3" 
                 style="padding-top:50px;">
             </canvas>
-     
-        <h3> What is the overall sentiment of all the tweets about Hillary Clinton versus the overall sentiment of all the tweets about Donald Trump?</h3>
   </div>
 </script>
 
@@ -104,10 +102,9 @@
             class="chart chart-doughnut"
             chart-data="data4" 
             chart-labels="labels4"
+            chart-options="options4"
             style="padding-top:50px;">
         </canvas>
-
-        <h3>What are the most popular hashtags that are in the tweets collected?</h3>
   </div>
 </script>
 
@@ -129,7 +126,5 @@
             chart-click="onClick5"
             style="padding-top:150px;padding-right:10px;padding-left:10px;">
         </canvas> 
-
-        <h3>At what times were the most tweets create during the debate?</h3>
   </div>
 </script>

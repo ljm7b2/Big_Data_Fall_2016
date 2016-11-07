@@ -93,11 +93,51 @@ angular.module('app.controllers', ['PointService', 'chart.js', 'Q5TimeService'])
     
 //    Q1 data
     $scope.labels1 = ['Hilary Clinton', 'Tim Kaine', 'Donald Trump', 'Mike Pence'];
-    $scope.series1 = ['Total Tweet Mentions'];
+    $scope.series1 = ['Total Tweet Mentions Per Candidate'];
+     $scope.type1 = 'polarArea';
+    
+    $scope.datasetOverride1 = [
+        { 
+          backgroundColor: [
+            "#FF6384",
+            "#4BC0C0",
+            "#FFCE56",
+            "#E7E9ED",
+        ],
+        }
+    ];
+    
+    $scope.toggle = function () {
+      $scope.type = $scope.type === 'polarArea' ?
+        'pie' : 'polarArea';
+    };
 
     $scope.data1 = [
         [60162, 191, 112210, 352]
     ];
+    $scope.options1 = {
+        responsive: true,
+        maintainAspectRatio:true,
+        legend: {
+            display:true,
+            labels:{
+                fontColor: 'rgb(255, 99, 132)'
+            },
+            position:'bottom'
+        },
+         title: {
+            display: true,
+            text: 'Out of all the tweets collected, which candidate is being discussed the most?',
+            fontSize:16,
+        },
+        scales:{
+            yAxes:[{
+                ticks:{
+                    min:0
+                }
+            }]
+        }
+    }
     
 //   Q2 Data  
     
@@ -127,7 +167,7 @@ angular.module('app.controllers', ['PointService', 'chart.js', 'Q5TimeService'])
     // Execute action
     });
     
-    $scope.labels2 = [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14];
+    $scope.labels2 = ['1 Tweet', '2 Tweets', '3 Tweets','4 Tweets','5 Tweets','6 Tweets','7 Tweets','8 Tweets','9 Tweets','10 Tweets','11 Tweets','12 Tweets','13 Tweets','14 Tweets'];
     $scope.series2 = ['People'];
     $scope.data2 = [
         [142005, 18204, 4166, 1292, 425, 160, 66,19,8,4,3,2,3,1]
@@ -137,16 +177,33 @@ angular.module('app.controllers', ['PointService', 'chart.js', 'Q5TimeService'])
     };
     $scope.datasetOverride2 = [{ yAxisID: 'y-axis-1' }];
     $scope.options2 = {
-    scales: {
-      yAxes: [
-        {
-          id: 'y-axis-1',
-          type: 'linear',
-          display: true,
-          position: 'left'
-        }
-      ]
-    }
+        responsive: true,
+        maintainAspectRatio:true,
+        legend: {
+            display:true,
+            labels:{
+                fontColor: 'rgb(255, 99, 132)'
+            },
+            position:'bottom'
+        },
+        scales: {
+          yAxes: [
+            {
+              id: 'y-axis-1',
+              type: 'linear',
+              display: true,
+              position: 'left',
+              ticks:{
+                  min:0,
+              }
+            }
+          ]
+        },
+        title: {
+        display: true,
+        text: 'Are many people tweeting a lot about the debate, or are just a few people dominating the discussion with lots of tweets?',
+        fontSize:16,
+        },
     };
     
 //  Q3 data
@@ -184,6 +241,37 @@ angular.module('app.controllers', ['PointService', 'chart.js', 'Q5TimeService'])
         [0.5748, 37.674, 54.1048, 7.494, 0.1524] //trump
     ];
     
+    $scope.series3 = ['Trump', 'Clinton'];
+    
+        $scope.datasetOverride3 = [
+        { 
+          backgroundColor: [
+            "#FF6384",
+            "#4BC0C0",
+        ],
+        }
+    ];
+    
+    $scope.options3 = {
+        title: {
+            display: true,
+            text: 'What is the overall sentiment of all the tweets about Hillary Clinton versus the overall sentiment of all the tweets about Donald Trump?',
+            fontSize:14,
+        },
+        responsive: true,
+        maintainAspectRatio:true,
+        legend: {
+            display:true,
+            labels:{
+                fontColor: 'rgb(255, 99, 132)',
+                
+            },
+            position:'bottom'
+            
+        },
+        
+    };
+    
 //  Q4
     $ionicModal.fromTemplateUrl('my-modal4.html', {
     scope: $scope,
@@ -214,6 +302,26 @@ angular.module('app.controllers', ['PointService', 'chart.js', 'Q5TimeService'])
     $scope.labels4 = ["#debatenight","#politics", "#Debates2016", "#debate", "#debate2016",                         "#TerenceCrutcher","#KeithLamontScott","#birtherism","#DNCleak","#UnlikelyDebateGuests"];
     $scope.data4 = [54264, 15, 17296, 1615, 469, 46, 44, 31, 22 ,20];
     
+    $scope.options4 = {
+    title: {
+        display: true,
+        text: 'What are the most popular hashtags that are in the tweets collected?',
+        fontSize:16,
+    },
+    responsive: true,
+    maintainAspectRatio:true,
+    legend: {
+        display:true,
+        labels:{
+            fontColor: 'rgb(255, 99, 132)',
+
+        },
+        position:'bottom'
+
+    },
+        
+    };
+    
     //  Q5
     $ionicModal.fromTemplateUrl('my-modal5.html', {
     scope: $scope,
@@ -242,7 +350,7 @@ angular.module('app.controllers', ['PointService', 'chart.js', 'Q5TimeService'])
     });
     
   $scope.labels5 = $scope.getTimesTms();
-  $scope.series5 = ['Series A'];
+  $scope.series5 = ['Tweets Per Second'];
   $scope.data5 = [
     $scope.getTimesCts(),
   ];
@@ -254,13 +362,39 @@ angular.module('app.controllers', ['PointService', 'chart.js', 'Q5TimeService'])
     scales: {
       yAxes: [
         {
-          id: 'y-axis-1',
+          id: 'y-axis-1', 
           type: 'linear',
           display: true,
-          position: 'left'
+          position: 'left',
+          autoSkip:true
         }
+      ],
+      xAxes:[
+          {
+              ticks:{
+                  maxTicksLimit:20
+              }
+          }
       ]
-    }
+        
+    },
+    title: {
+        display: true,
+        text: 'At what times were the most tweets created during the debate?',
+        fontSize:16,
+    },
+    responsive: true,
+    maintainAspectRatio:true,
+    legend: {
+        display:true,
+        labels:{
+            fontColor: 'rgb(255, 99, 132)',
+
+        },
+        position:'bottom'
+
+    },
+       
   };
 
 })
